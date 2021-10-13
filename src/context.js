@@ -102,7 +102,8 @@ const AppProvider = ({ children }) => {
         console.log("afterTextPost", posts);
       });
     }
-
+    
+    getPosts();
     e.target.reset();
     setPhotoAdded("");
   };
