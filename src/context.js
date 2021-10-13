@@ -58,6 +58,7 @@ const AppProvider = ({ children }) => {
     }).then((res) => {
       let posts = res.data;
       setPostsList(posts.reverse());
+      console.log("getPostsFunc", posts);
     });
   };
 
@@ -82,6 +83,7 @@ const AppProvider = ({ children }) => {
           let posts = res.data;
           setPostsList(posts.reverse());
           getPhotos();
+          console.log("afterImagePosted", posts);
         });
       };
 
@@ -97,6 +99,7 @@ const AppProvider = ({ children }) => {
       }).then((res) => {
         let posts = res.data;
         setPostsList(posts.reverse());
+        console.log("afterTextPost", posts);
       });
     }
 
