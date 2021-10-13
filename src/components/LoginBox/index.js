@@ -26,14 +26,19 @@ import {
 import { useGlobalContext } from "../../context";
 
 const LoginBox = () => {
-  const { getResults, checkAnswer, getPosts } = useGlobalContext();
+  const { getResults, checkAnswer, getPosts, setIsLoading } =
+    useGlobalContext();
   const history = useHistory();
-  const navigateTo = () => history.push("/dashboard");
+  const navigateTo = () => {
+    setIsLoading(false);
+    history.push("/dashboard");
+  };
 
   const [errorDisplay, setErrorDisplay] = useState("none");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     let email = e.target.email.value.trim();
     let password = e.target.password.value;
 
@@ -72,7 +77,7 @@ const LoginBox = () => {
               questions[Math.floor(Math.random() * questions.length)];
             localStorage.setItem("question", question);
             Axios.post(
-              "https://sharescape-mysql.herokuapp.com//submitQuestion",
+              "https://sharescape-mysql.herokuapp.com/submitQuestion",
               {
                 date: currentDate,
                 question: question,

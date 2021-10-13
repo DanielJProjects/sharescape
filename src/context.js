@@ -108,20 +108,24 @@ const AppProvider = ({ children }) => {
     Axios.get(
       "https://sharescape-mysql.herokuapp.com/getMostRecentQuestion"
     ).then((res) => {
-      let data = res.data[0];
-      let questionId = data.questionId;
-      let userId = localStorage.getItem("userId");
+      if (res.data.length > 0) {
+        let data = res.data[0];
+        let questionId = data.questionId;
+        let userId = localStorage.getItem("userId");
 
-      Axios.post("https://sharescape-mysql.herokuapp.com/getAnswer", {
-        questionId: questionId,
-        userId: userId,
-      }).then((res) => {
-        if (res.data.length < 1) {
-          setShowOptions(true);
-        } else {
-          setShowOptions(false);
-        }
-      });
+        Axios.post("https://sharescape-mysql.herokuapp.com/getAnswer", {
+          questionId: questionId,
+          userId: userId,
+        }).then((res) => {
+          if (res.data.length < 1) {
+            setShowOptions(true);
+          } else {
+            setShowOptions(false);
+          }
+        });
+      } else {
+        setShowOptions(true);
+      }
     });
   };
 

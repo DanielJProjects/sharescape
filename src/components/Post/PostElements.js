@@ -18,7 +18,7 @@ export const PostDiv = styled.div`
   padding: 20px 20px 0px 20px;
   margin-top: 20px;
   position: relative;
-  animation: ${transition} 1.5s;
+  animation: ${transition} 1s;
 `;
 
 export const MoreIcon = styled.p`

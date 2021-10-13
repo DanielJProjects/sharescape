@@ -12,7 +12,7 @@ export const QuestionsContainer = styled.div`
 export const QuestionsWrapper = styled.div`
   border-radius: 20px;
   box-shadow: 0px 0px 6px 1px #cccccc;
-  padding: 40px 50px;
+  padding: 40px 170px;
   text-align: center;
   margin-bottom: 20px;
 `;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Content from "../components/Content";
 import FollowerReqs from "../components/FollowerReqs";
 import Navbar from "../components/Navbar";
@@ -7,7 +7,12 @@ import ProfileBox from "../components/ProfileBox";
 import { useGlobalContext } from "../context";
 
 const Dashboard = () => {
-  const { profileBoxDisplay, showFollowerBox, showNotifs } = useGlobalContext();
+  const { profileBoxDisplay, showFollowerBox, showNotifs, getPosts } =
+    useGlobalContext();
+
+  useEffect(() => {
+    getPosts();
+  }, []);
 
   return (
     <>
