@@ -103,7 +103,6 @@ const AppProvider = ({ children }) => {
       });
     }
     
-    getPosts();
     e.target.reset();
     setPhotoAdded("");
   };
