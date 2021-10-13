@@ -44,6 +44,7 @@ const LoginBox = () => {
       if (res.data.message) {
         setErrorDisplay("block");
       } else {
+        setErrorDisplay("none");
         let result = res.data[0];
         localStorage.clear();
         localStorage.setItem("userId", result.id);
@@ -82,9 +83,10 @@ const LoginBox = () => {
         getPosts();
         getResults();
         checkAnswer();
+        navigateTo();
+        
       }
     });
-    navigateTo();
   };
 
   return (
