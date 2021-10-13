@@ -84,7 +84,6 @@ const LoginBox = () => {
         getResults();
         checkAnswer();
         navigateTo();
-        
       }
     });
   };
