@@ -42,7 +42,7 @@ const RegisterBox = () => {
     let lat = coords.latitude - latChange;
     let long = coords.longitude + longChange;
 
-    const access_key = "cbf76b2202bbf21045edeb41fe623e5c";
+    const access_key = "355b666cf66ccbb8ff05e6aa5f413af3";
 
     const url = `http://api.positionstack.com/v1/reverse?access_key=${access_key}&query=${lat},${long}&limit=1`;
 
