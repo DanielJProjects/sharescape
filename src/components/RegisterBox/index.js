@@ -44,7 +44,7 @@ const RegisterBox = () => {
 
     const access_key = "cbf76b2202bbf21045edeb41fe623e5c";
 
-    const url = `https://api.positionstack.com/v1/reverse?access_key=${access_key}&query=${lat},${long}&limit=1`;
+    const url = `http://api.positionstack.com/v1/reverse?access_key=${access_key}&query=${lat},${long}&limit=1`;
 
     const res = await fetch(url, {
       method: "GET",
