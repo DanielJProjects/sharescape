@@ -21,6 +21,6 @@ export const ProfileContentContainer = styled.div`
 `;
 
 export const InfoDiv = styled.div`
-  width: 24%;
+  width: 350px;
   margin-right: 25px;
 `;
