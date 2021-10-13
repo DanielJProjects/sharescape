@@ -42,29 +42,31 @@ const RegisterBox = () => {
     let lat = coords.latitude - latChange;
     let long = coords.longitude + longChange;
 
-    const access_key = "355b666cf66ccbb8ff05e6aa5f413af3";
-
-    const url = `http://api.positionstack.com/v1/reverse?access_key=${access_key}&query=${lat},${long}&limit=1`;
+    const url = `https://trueway-geocoding.p.rapidapi.com/ReverseGeocode?location=${lat}%2C${long}&language=en&limit=1`;
 
     const res = await fetch(url, {
       method: "GET",
-    }).then((res) => res.json());
+      headers: {
+        "x-rapidapi-host": "trueway-geocoding.p.rapidapi.com",
+        "x-rapidapi-key": "4c1e7ec62cmsh3a1c7bfb5e5e298p1796fajsnadbedd5dd72e",
+      },
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((res) => {
+        return res.results[0];
+      })
+      .catch((err) => {
+        console.error(err);
+      });
 
     let textLoc = null;
 
-    if (
-      res.data[0].locality === null ||
-      res.data[0].county === null ||
-      res.data[0].country === null
-    ) {
+    if (res.locality === null || res.region === null || res.country === null) {
       textLoc = null;
     } else {
-      textLoc =
-        res.data[0].locality +
-        ", " +
-        res.data[0].county +
-        ", " +
-        res.data[0].country;
+      textLoc = res.locality + ", " + res.region + ", " + res.country;
     }
 
     return textLoc;

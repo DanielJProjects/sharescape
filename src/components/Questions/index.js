@@ -102,7 +102,7 @@ const Questions = () => {
                 ? localStorage.getItem("yesterdayQ")
                 : yesterdayQ}
             </Question>
-            <ResponsesDiv>
+            <ResponsesDiv showOptions={noQYesterday}>
               <Responses>
                 <Result noAnswers={noAnswers}>
                   No answers were given yesterday.
