@@ -38,7 +38,6 @@ const LoginBox = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsLoading(true);
     let email = e.target.email.value.trim();
     let password = e.target.password.value;
 
@@ -49,6 +48,7 @@ const LoginBox = () => {
       if (res.data.message) {
         setErrorDisplay("block");
       } else {
+        setIsLoading(true);
         setErrorDisplay("none");
         let result = res.data[0];
         localStorage.clear();
